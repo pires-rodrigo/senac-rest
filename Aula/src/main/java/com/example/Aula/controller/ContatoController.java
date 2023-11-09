@@ -27,11 +27,11 @@ public class ContatoController {
 	public ResponseEntity<List<Contato>> getContatos() {
 		return ResponseEntity.status(HttpStatus.OK).body(repo.findAll());
 	}
-	
-	
+		
 	@PostMapping()
-	public ResponseEntity<String> inserirContato(@RequestBody String contato) {
-		return ResponseEntity.status(HttpStatus.CREATED).body(contato);
+	public ResponseEntity<Contato> inserirContato(@RequestBody Contato contato) {
+		Contato ct = repo.save(contato);
+		return ResponseEntity.status(HttpStatus.CREATED).body(ct);
 	}
 	
 	@PutMapping("/{idcontato}")
