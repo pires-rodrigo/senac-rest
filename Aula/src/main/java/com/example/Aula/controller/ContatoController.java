@@ -50,11 +50,16 @@ public class ContatoController {
 		   return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 	}
-	
-	
-	
+		
 	@GetMapping("/{id}")
-	public String getUmContato() {
-		return "Um contato";
+	public ResponseEntity<Contato> getUmContato(@PathVariable("id") long id) {
+		Optional<Contato> opContato = repo.findById(id);
+		try {
+			Contato ct = opContato.get();		
+			return ResponseEntity.status(HttpStatus.OK).body(ct);
+		}
+		catch(Exception e) {
+		   return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
 	}
 }
