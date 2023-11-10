@@ -43,6 +43,7 @@ public class ContatoController {
 			Contato ct = opContato.get();		
 			ct.setNome(contato.getNome());
 			ct.setEmail(contato.getEmail());
+			repo.save(ct);
 			return ResponseEntity.status(HttpStatus.OK).body(ct);
 		}
 		catch(Exception e) {
