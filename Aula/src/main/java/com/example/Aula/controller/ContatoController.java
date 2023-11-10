@@ -1,6 +1,7 @@
 package com.example.Aula.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,9 +36,18 @@ public class ContatoController {
 	}
 	
 	@PutMapping("/{idcontato}")
-	public ResponseEntity<String> alterarContato(@PathVariable("idcontato") int id, 
-			@RequestBody String contato) {
-		return ResponseEntity.status(HttpStatus.OK).body(contato);
+	public ResponseEntity<Contato> alterarContato(@PathVariable("idcontato") Long idcontato, 
+			@RequestBody Contato contato) {
+		Optional<Contato> opContato = repo.findById(idcontato);
+		try {
+			Contato ct = opContato.get();		
+			ct.setNome(contato.getNome());
+			ct.setEmail(contato.getEmail());
+			return ResponseEntity.status(HttpStatus.OK).body(ct);
+		}
+		catch(Exception e) {
+		   return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
 	}
 	
 	
