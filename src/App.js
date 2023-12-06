@@ -1,11 +1,9 @@
-import Cadastro from './componentes/cadastro';
-import Pai from './componentes/pai';
+import Consulta from './componentes/consulta';
 
 function App() {
-  return (
+    return (
     <div className="App">
-      { /*<Pai /> */}
-      <Cadastro />
+      <Consulta />
     </div>
   );
 }
