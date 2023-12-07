@@ -1,10 +1,21 @@
 import { useState } from 'react'
-import Card from './card'
+
 export default function Cadastro(){
     const[nome, setNome] = useState('')
     const[email, setEmail] = useState('')
     const[fone, setFone] = useState('')
     
+    function salvar(){      
+      let obj = {nome, email, fone}
+      fetch('http://localhost:8080/contatos',
+      {
+        method:'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(obj)
+      })
+      .then(x => alert('Contato criado com sucesso'))
+    }
+
     return(
         <div className="container">
             <h2 className="text-center">Novo contato</h2>
@@ -36,12 +47,12 @@ export default function Cadastro(){
             />
 
             <div className="mt-3 d-flex justify-content-between">
-                <button className="btn btn-primary">Salvar</button>
+                <button 
+                     onClick={salvar}
+                     className="btn btn-primary">
+                      Salvar</button>
                 <button className="btn btn-danger">Cancelar</button>
-            </div> 
-            <Card
-               contato={{nome, email, fone}}
-            />                            
+            </div>                                        
         </div>
     )
 }
