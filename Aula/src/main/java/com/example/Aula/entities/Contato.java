@@ -18,7 +18,11 @@ public class Contato {
 	private String nome;
 	@Column(length = 100, nullable = false)
 	private String email;
+	@Column (length = 14, nullable = false)
+	private String fone;
 	
+	
+
 	@Transient
 	private String observacao;
 
@@ -52,6 +56,14 @@ public class Contato {
 
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
+	}
+	
+	public String getFone() {
+		return fone;
+	}
+
+	public void setFone(String fone) {
+		this.fone = fone;
 	}
 
 	public Contato(Long id, String nome, String email) {
