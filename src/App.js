@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {Link } from 'react-router-dom'
+import {Link, Outlet } from 'react-router-dom'
 
 function App() {
   return (
@@ -10,6 +10,9 @@ function App() {
         <Link to='/contatos/cadastrar'>Cadastro</Link> &nbsp;
         <Link to='/contatos/consultar'>Consulta</Link>
       </nav>
+      <main>
+         <Outlet />
+      </main>
     </div>
   );
 }

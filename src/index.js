@@ -10,21 +10,23 @@ const rotas = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-  },
-  {
-    path:"/contatos/cadastrar",
-    element: <Cadastro />
-  },
-  {
-    path:"/contatos/consultar",
-    element: <Consulta />
+    children: [
+      {
+        path: "/contatos/cadastrar",
+        element: <Cadastro />
+      },
+      {
+        path: "/contatos/consultar",
+        element: <Consulta />
+      }
+    ]
   }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={rotas}/>
+    <RouterProvider router={rotas} />
   </React.StrictMode>
 );
 
