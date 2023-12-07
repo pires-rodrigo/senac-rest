@@ -7,5 +7,5 @@ import com.example.Aula.entities.Local;
 
 @Repository
 public interface LocalRepository extends JpaRepository<Local, Long> {
-
+   
 }
