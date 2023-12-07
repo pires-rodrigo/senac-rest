@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Cadastro from './componentes/cadastro';
-import Consulta from './consulta';
+import Consulta from './componentes/consulta';
+import Detalhe from './componentes/detalhe'
 
 const rotas = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const rotas = createBrowserRouter([
       {
         path: "/contatos/consultar",
         element: <Consulta />
+      },
+      {
+        path: "/contatos/detalhes/:idContato", 
+        element: <Detalhe />
       }
     ]
   }

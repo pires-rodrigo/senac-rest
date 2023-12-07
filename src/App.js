@@ -8,7 +8,8 @@ function App() {
       <h1>Agenda</h1>
       <nav>
         <Link to='/contatos/cadastrar'>Cadastro</Link> &nbsp;
-        <Link to='/contatos/consultar'>Consulta</Link>
+        <Link to='/contatos/consultar'>Consulta</Link> &nbsp;
+        <Link to='/contatos/detalhes/10'>Detalhes</Link>
       </nav>
       <main>
          <Outlet />
