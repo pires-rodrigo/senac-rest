@@ -1,11 +1,17 @@
-import Cadastro from './componentes/cadastro';
-import Consulta from './componentes/consulta';
+import { Link, Outlet} from 'react-router-dom'
 
 function App() {
     return (
     <div className="App">
-      <Cadastro />
-      <Consulta />
+        <h1>Agenda</h1>
+        <hr />
+        <nav>
+            <Link to='/contato/cadastrar'>Cadastro</Link> &nbsp;
+            <Link to='/contato/consultar'>Consulta</Link>
+        </nav>
+        <main>
+          <Outlet />
+        </main>
     </div>
   );
 }

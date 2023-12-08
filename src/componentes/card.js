@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function Card(props) {
     function excluir(){
     fetch(`http://localhost:8080/contatos/${props.contato.id}`,
@@ -24,7 +26,7 @@ export default function Card(props) {
                     <span className="text-danger">{props.contato.fone}</span>
                 </div>
                 <div className="mt-3 d-flex justify-content-between">
-                    <button className="btn btn-outline-primary">Editar</button>
+                    <Link to={`/contato/editar/${props.contato.id}`}><button className="btn btn-outline-primary">Editar</button></Link>
                     <button 
                       onClick={excluir}
                     className="btn btn-outline-danger" >Excluir</button>
