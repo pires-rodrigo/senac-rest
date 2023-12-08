@@ -5,7 +5,7 @@ function App() {
     <div className="App">
         <h1>Agenda</h1>
         <hr />
-        <nav>
+        <nav className='nav-bar'>
             <Link to='/contato/cadastrar'>Cadastro</Link> &nbsp;
             <Link to='/contato/consultar'>Consulta</Link>
         </nav>
